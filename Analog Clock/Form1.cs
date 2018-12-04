@@ -58,6 +58,8 @@ namespace Analog_Clock
             HourPointer.y = CenterOfTheClock.x - (int)(40 * Math.Cos(Math.PI * teraz.Hour * 30 / 180));
             g.DrawLine(new Pen(Color.Orange, 2), CenterOfTheClock.x, CenterOfTheClock.y, HourPointer.x, HourPointer.y);
 
+            g.DrawString("12", new Font("Arial", 12), Brushes.Black, new Point(238, 105));
+
 
         }
 
@@ -69,7 +71,12 @@ namespace Analog_Clock
             g = this.CreateGraphics();
             g.DrawRectangle(new Pen(Color.White, 2), LeftUpperClock.x, LeftUpperClock.y, 300, 300);
             g.DrawEllipse(new Pen(Color.White, 2), LeftUpperClock.x, LeftUpperClock.y, 300, 300);
-
+            for (int i = 0; i < 12; i++)
+            {
+                Label time = new Label();
+                time.Height = 300;
+                time.Width = 250;
+            }
            
         }
 

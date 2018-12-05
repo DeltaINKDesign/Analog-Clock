@@ -24,16 +24,16 @@ namespace Analog_Clock
     public partial class Form1 : Form
     {
        
-        Vector2 LeftUpperClock; //nie zmienialne
-        Vector2 CenterOfTheClock; //nie zmienialne 
-        Vector2 SecondPointer;  //wektor sekund
-        Vector2 MinutePointer;  //wektor minuty
-        Vector2 HourPointer;  //wektor godziny
-        Graphics g;  //inicjujemy korzystanie z grafiki 
+        Vector2 LeftUpperClock; 
+        Vector2 CenterOfTheClock; 
+        Vector2 SecondPointer; 
+        Vector2 MinutePointer;  
+        Vector2 HourPointer;  
+        Graphics g;  
         public Form1()
         {
             InitializeComponent();
-            this.BackColor = Color.Black;  //ustawia kolor tła
+            this.BackColor = Color.Black; 
             
             
         }
@@ -41,7 +41,7 @@ namespace Analog_Clock
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            DateTime teraz = DateTime.Now;  //wskazowka sekundy
+            DateTime teraz = DateTime.Now;  
             g.DrawLine(new Pen(Color.Black, 2), CenterOfTheClock.x, CenterOfTheClock.y, SecondPointer.x, SecondPointer.y);
             g.DrawLine(new Pen(Color.Black, 2), CenterOfTheClock.x, CenterOfTheClock.y, MinutePointer.x, MinutePointer.y);
             g.DrawLine(new Pen(Color.Black, 2), CenterOfTheClock.x, CenterOfTheClock.y, HourPointer.x, HourPointer.y);
@@ -83,7 +83,7 @@ namespace Analog_Clock
             CenterOfTheClock = new Vector2(250, 250);
             LeftUpperClock = new Vector2(200 / 2, 200 / 2);
             g = this.CreateGraphics();
-            g.DrawRectangle(new Pen(Color.White, 2), LeftUpperClock.x, LeftUpperClock.y, 300, 300);
+            //g.DrawRectangle(new Pen(Color.White, 2), LeftUpperClock.x, LeftUpperClock.y, 300, 300);
             g.DrawEllipse(new Pen(Color.White, 2), LeftUpperClock.x, LeftUpperClock.y, 300, 300);
           
         }
@@ -92,6 +92,11 @@ namespace Analog_Clock
         {
             
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }
